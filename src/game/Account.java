@@ -19,35 +19,15 @@ public class Account {
 	 */
 	public int getBalance() { return balance; }
 
-	/**
-	 * Returns a boolean, if the player is allowed to withdraw, it will return false he is not 
-	 * allowed to withdraw and therefore can't get a negative balance
-	 * Will subtract the value from the balance
-	 * @param value check if it is allowed
-	 * @return a boolean 
-	 */
-	public boolean withdraw(int value)
-	{
-		if (balance - value >= 0)
-		{
-			balance -= value;
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Returns a boolean, will always return. Will add the value to the balance
-	 * @param value check if it is allowed
-	 * @return a boolean
-	 */
-	public boolean deposit(int value)
-	{
-		if(value < 0)
-			return false;
+	public int transaction(int amount){
+		balance += amount;
+		int amountTransfered = amount;
 		
-		balance += value;	
-		return true;			
-	}	
+		if(balance <= 0) {
+			amountTransfered -= balance;
+			balance = 0;
+		}
+		
+		return amountTransfered;
+	}
 }

@@ -22,11 +22,17 @@ public class Player
 		//TODO greetings world
 	}
 	
+	public int changeBalance(int amount){
+		return account.transaction(amount);
+	}
 	
-	public boolean changeBalance()
+	
+	public boolean pay(Player recipient, int amount)
 	{
-		//TODO logic here
-		return true; 
+		int amountPayed = changeBalance(amount);
+		recipient.changeBalance(Math.abs(amountPayed));
+		
+		return amountPayed == amount; 
 	}
 	
 
