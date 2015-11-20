@@ -1,7 +1,6 @@
 package game;
 
-public class LaborCamp extends Ownable 
-{
+public class LaborCamp extends Ownable {
 	private int baseRent;
 
 	public LaborCamp(String name, int price, int baseRent) {
@@ -18,7 +17,7 @@ public class LaborCamp extends Ownable
 	@Override
 	public void land(Player p) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

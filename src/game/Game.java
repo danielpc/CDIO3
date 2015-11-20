@@ -1,6 +1,8 @@
 package game;
 
-public class Game 
-{
+import desktop_resources.GUI;
+
+public class Game {
 	// TODO all
+
 }

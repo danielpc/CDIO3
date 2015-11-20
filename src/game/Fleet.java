@@ -1,8 +1,7 @@
 package game;
 
-public class Fleet extends Ownable
-{
-	private final static int[] RENT = {500, 1000, 2000, 4000};
+public class Fleet extends Ownable {
+	private final static int[] RENT = { 500, 1000, 2000, 4000 };
 
 	public Fleet(String name, int price) {
 		super(name, price);
