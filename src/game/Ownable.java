@@ -8,8 +8,18 @@ public abstract class Ownable extends Field {
 	public Ownable(String name, int price) {
 		super(name);
 		this.price = price;
+		owner = null;
 	}
 
 	public abstract int getRent();
+	
+	public Player getOwner() {
+		return owner;
+	}
+	
+	public void buy(Player buyer) {
+		buyer.changeBalance(-price);
+		owner = buyer;
+	}
 
 }
