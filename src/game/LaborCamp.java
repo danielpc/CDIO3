@@ -8,6 +8,10 @@ public class LaborCamp extends Ownable {
 		this.baseRent = baseRent;
 	}
 
+	public int getBaseRent() {
+		return this.baseRent;
+	}
+	
 	@Override
 	public int getRent() {
 		// TODO Auto-generated method stub
