@@ -10,6 +10,10 @@ public class Refuge extends Field {
 		this.bonus = bonus;
 	}
 
+	public int getBonus() {
+		return this.bonus;
+	}
+	
 	@Override
 	public void land(Player p) {
 		p.changeBalance(bonus);
