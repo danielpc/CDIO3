@@ -4,10 +4,14 @@ public class Player {
 	private String name;
 	private int currentField;
 	private Account account;
+	private int ownedFleet;
+	private int ownedLabor;
 
 	public Player(String name, int balance) {
 		this.name = name;
 		currentField = 0;
+		ownedFleet = 0;
+		ownedLabor = 0;
 		account = new Account(balance);
 	}
 
@@ -17,6 +21,14 @@ public class Player {
 
 	public int getBalance() {
 		return account.getBalance();
+	}
+	
+	public int getOwnedFleet() {
+		return ownedFleet;
+	}
+	
+	public int getOwnedLabor() {
+		return ownedLabor;
 	}
 
 	public int getCurrentField() {
