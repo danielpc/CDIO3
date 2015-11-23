@@ -18,7 +18,7 @@ public class Tax extends Field {
 		this.taxRate = -1;
 	}
 
-	public String toString() {
+	public String getTaxRate() {
 		if (this.taxRate == -1)
 			return Integer.toString(this.taxAmount);
 		else {
