@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public class LaborCamp extends Ownable {
 	private int baseRent;
 
@@ -11,7 +13,6 @@ public class LaborCamp extends Ownable {
 	public int getBaseRent() {
 		return this.baseRent;
 	}
-	
 	@Override
 	public int getRent() {
 		// TODO Auto-generated method stub
@@ -20,7 +21,22 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public void land(Player p) {
-		// TODO Auto-generated method stub
+		if(getOwner() == null){
+			String s = GUI.getUserButtonPressed("Vil du købe for prisen ? " + getPrice(), "ja" , "nej");
+			if (s.equals("ja")) {
+				buy(p);
+				p.setOwnedLabor(p.getOwnedLabor()+1);
+			}
+		}
+		else{
+			GUI.getUserButtonPressed("du skal nu rulle", "rul");
+			DiceCup dc = new DiceCup();
+			dc.roll();
+			GUI.setDice(dc.getDiceValues()[0], dc.getDiceValues()[1]);
+			int amount = dc.getDiceSum() * 100 * getOwner().getOwnedLabor();
+			p.pay(getOwner(), amount);
+			GUI.showMessage("Du har betalt " +  amount + " kr til " + getOwner().getName());
+		}
 
 	}
 
