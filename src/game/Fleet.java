@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public class Fleet extends Ownable {
 	private final static int[] RENT = { 500, 1000, 2000, 4000 };
 
@@ -14,13 +16,22 @@ public class Fleet extends Ownable {
 	
 	@Override
 	public int getRent() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 0;											//bruges ikke 
 	}
 
 	@Override
 	public void land(Player p) {
-		// TODO Auto-generated method stub
+		if(getOwner() == null){
+			String s = GUI.getUserButtonPressed("Vil du købe for prisen ? " + getPrice(), "ja" , "nej");
+			if (s.equals("ja")) {
+				buy(p);
+				p.setOwnedFleet(p.getOwnedFleet()+1);
+			}
+		}
+		else{
+			p.pay(getOwner(), RENT[p.getOwnedFleet()-1]);
+			GUI.showMessage("Du har betalt " +  RENT[p.getOwnedFleet()-1] + " kr til " + getOwner().getName());
+		}
 	}
 
 }
