@@ -13,6 +13,10 @@ public abstract class Ownable extends Field {
 
 	public abstract int getRent();
 	
+	public int getPrice(){
+		return price;
+	} 
+	
 	public Player getOwner() {
 		return owner;
 	}
