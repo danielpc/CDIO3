@@ -42,6 +42,7 @@ public class Game {
 		Game g = new Game();
 	
 		GUI.showMessage("tabere");
+		GUI.close();
 	}
 	
 	private void createGUI() {	
