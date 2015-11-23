@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public class Refuge extends Field {
 	private int bonus;
 
@@ -10,8 +12,8 @@ public class Refuge extends Field {
 
 	@Override
 	public void land(Player p) {
-		// TODO Auto-generated method stub
-
+		p.changeBalance(bonus);
+		GUI.showMessage("Du har landet på den Refuge, du får " + bonus);
 	}
 
 }
