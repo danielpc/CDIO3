@@ -25,7 +25,7 @@ public class Fleet extends Ownable {
 			String s = GUI.getUserButtonPressed("Vil du købe for prisen ? " + getPrice(), "ja" , "nej");
 			if (s.equals("ja")) {
 				buy(p);
-				p.setOwnedFleet(p.getOwnedFleet()+1);
+				p.setOwnedFleet(getOwner().getOwnedFleet()+1);
 			}
 		}
 		else{
