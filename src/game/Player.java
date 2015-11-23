@@ -27,6 +27,14 @@ public class Player {
 		return ownedFleet;
 	}
 	
+	public void setOwnedFleet(int ownedFleet) {
+		this.ownedFleet = ownedFleet;
+	}
+
+	public void setOwnedLabor(int ownedLabor) {
+		this.ownedLabor = ownedLabor;
+	}
+
 	public int getOwnedLabor() {
 		return ownedLabor;
 	}
