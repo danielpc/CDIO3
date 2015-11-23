@@ -11,6 +11,12 @@ public class Tax extends Field {
 		this.taxAmount = taxAmount;
 		this.taxRate = taxRate;
 	}
+	
+	public Tax(String name, int taxAmount) {
+		super(name);
+		this.taxAmount = taxAmount;
+		this.taxRate = -1;
+	}
 
 	@Override
 	public void land(Player p) {
