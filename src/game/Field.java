@@ -6,6 +6,10 @@ public abstract class Field {
 	public Field(String name) {
 		this.name = name;
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 
 	public abstract void land(Player p);
 
