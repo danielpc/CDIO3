@@ -31,11 +31,9 @@ public class Player {
 		return account.transaction(amount);
 	}
 
-	public boolean pay(Player recipient, int amount) {
+	public void pay(Player recipient, int amount) {
 		int amountPayed = changeBalance(amount);
 		recipient.changeBalance(Math.abs(amountPayed));
-
-		return amountPayed == amount;
 	}
 
 }
