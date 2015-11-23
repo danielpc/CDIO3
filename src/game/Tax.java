@@ -18,6 +18,14 @@ public class Tax extends Field {
 		this.taxRate = -1;
 	}
 
+	public String toString() {
+		if (this.taxRate == -1)
+			return Integer.toString(this.taxAmount);
+		else {
+			return this.taxAmount + " eller " + this.taxRate + "%";
+		}
+	}
+	
 	@Override
 	public void land(Player p) {
 		if (taxRate < 0) {
