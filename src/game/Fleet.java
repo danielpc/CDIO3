@@ -3,11 +3,15 @@ package game;
 public class Fleet extends Ownable {
 	private final static int[] RENT = { 500, 1000, 2000, 4000 };
 
+	public static int[] getRents() {
+		return RENT;
+	}
+	
 	public Fleet(String name, int price) {
 		super(name, price);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public int getRent() {
 		// TODO Auto-generated method stub
