@@ -32,7 +32,7 @@ public class Player {
 	}
 
 	public void pay(Player recipient, int amount) {
-		int amountPayed = changeBalance(amount);
+		int amountPayed = changeBalance(-amount);
 		recipient.changeBalance(Math.abs(amountPayed));
 	}
 
