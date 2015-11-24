@@ -39,12 +39,12 @@ public class Player {
 		return ownedLabor;
 	}
 
-	public int getCurrentField() {
+	public int getPosition() {
 		return currentField;
 	}
 
 	public void setPosition(int position) {
-		// TODO greetings world
+		currentField = position;
 	}
 
 	public int changeBalance(int amount) {
