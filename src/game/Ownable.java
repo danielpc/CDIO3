@@ -15,7 +15,11 @@ public abstract class Ownable extends Field {
 	
 	public int getPrice(){
 		return price;
-	} 
+	}
+	
+	public void setOwner(Player owner) {
+		this.owner = owner;
+	}
 	
 	public Player getOwner() {
 		return owner;
