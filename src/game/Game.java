@@ -3,12 +3,16 @@ package game;
 import desktop_resources.GUI;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 import desktop_fields.*;
 
 public class Game {
 	
-	Field[] fields;
+	private Field[] fields;
+	private List<Player> players;
+	
 	
 	public Game() {
 		fields = new Field[21];
@@ -35,13 +39,14 @@ public class Game {
 		fields[19] = new Territory("Tårnet", 6000, 3200);
 		fields[20] = new Territory("Slottet", 8000, 4000);
 		
+		players = new ArrayList<>();
+		
 		createGUI();
+		createPlayers();
 	}
 	
 	public static void main(String[] args) {
 		Game g = new Game();
-	
-		GUI.showMessage("tabere");
 		GUI.close();
 	}
 	
@@ -107,6 +112,39 @@ public class Game {
 			}
 		}
 		GUI.create(fields);
+	}
+	
+	private void createPlayers(){
+		int playerCount = GUI.getUserInteger("Vælg antal spillere mellem 2 og 6: ", 2, 6);
+		
+		for(int i = 0; i < playerCount; i++)
+		{
+			boolean invalid = false;
+			String name;
+			
+			do {
+				name = GUI.getUserString("Spiller " + (i+1) + " indtast navn");
+				invalid = false;
+				
+				if(name.isEmpty()) {
+					invalid = true;
+					GUI.showMessage("Skriv venligst et gyldigt navn");
+					continue;
+				}
+				
+				for(int j = 0; j < players.size(); j++){
+					if(players.get(j).getName().equals(name)) {
+						invalid = true;
+						GUI.showMessage("Navnet er allerede taget");
+						break;
+					}
+				}
+			} while(invalid);
+			
+			Player p = new Player(name, 30000);
+			players.add(p);
+			GUI.addPlayer(p.getName(), p.getBalance());
+		}
 	}
 	
 	
