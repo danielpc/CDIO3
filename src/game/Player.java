@@ -9,7 +9,7 @@ public class Player {
 
 	public Player(String name, int balance) {
 		this.name = name;
-		currentField = 0;
+		currentField = -1;
 		ownedFleet = 0;
 		ownedLabor = 0;
 		account = new Account(balance);
