@@ -12,6 +12,7 @@ public class Game {
 	
 	private Field[] fields;
 	private List<Player> players;
+	private DiceCup diceCup;
 	
 	
 	public Game() {
@@ -40,9 +41,11 @@ public class Game {
 		fields[20] = new Territory("Slottet", 8000, 4000);
 		
 		players = new ArrayList<>();
+		diceCup = new DiceCup();
 		
 		createGUI();
 		createPlayers();
+		run();		
 	}
 	
 	public static void main(String[] args) {
@@ -147,6 +150,43 @@ public class Game {
 		}
 	}
 	
+	private void run(){
+		int turn = 0;
+		
+		while(players.size() > 1){
+			Player p = players.get(turn);
+			
+			GUI.getUserButtonPressed(p.getName() + ", klik for at kaste", "Kast");
+			diceCup.roll();
+			int[] diceValues = diceCup.getDiceValues();
+			GUI.setDice(diceValues[0], diceValues[1]);
+			
+			p.setPosition((p.getPosition() + diceCup.getDiceSum()) % (fields.length));
+			GUI.removeAllCars(p.getName());
+			GUI.setCar(p.getPosition()+1, p.getName());
+			
+			fields[p.getPosition()].land(p);
+			GUI.setBalance(p.getName(), p.getBalance());
+			
+			if(p.getBalance() <= 0) {
+				GUI.showMessage(p.getName() + " er ude af spillet");
+				
+				for(Field f : fields) {
+					if(f instanceof Ownable) {
+						if(((Ownable) f).getOwner() == p) {
+							((Ownable) f).setOwner(null);
+						}
+					}
+				}
+				
+				GUI.removeAllCars(p.getName());
+				players.remove(p);
+			} 
+			
+			turn++;
+			turn %= players.size();
+		}
 	
-	
+		GUI.showMessage(players.get(0).getName() + " vandt.");
+	}
 }
