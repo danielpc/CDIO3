@@ -18,6 +18,14 @@ public class LaborCamp extends Ownable {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	@Override
+	public void buy(Player buyer) {
+		if(getOwner() == null)
+			buyer.setOwnedLabor(buyer.getOwnedLabor() + 1);
+		
+		super.buy(buyer);
+	}
 
 	@Override
 	public void land(Player p) {
@@ -25,7 +33,6 @@ public class LaborCamp extends Ownable {
 			String s = GUI.getUserButtonPressed("Vil du købe for prisen ? " + getPrice(), "ja" , "nej");
 			if (s.equals("ja")) {
 				buy(p);
-				p.setOwnedLabor(p.getOwnedLabor()+1);
 			}
 		}
 		else{
