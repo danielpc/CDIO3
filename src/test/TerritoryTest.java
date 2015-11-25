@@ -7,8 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import game.*;
 
-import org.junit.Test;
-
 public class TerritoryTest {
 	
 	private Player player, player2;
@@ -25,6 +23,7 @@ public class TerritoryTest {
 	public void tearDown() throws Exception {
 		this.player = new Player("Søren Goku", 10000);
 		this.player2 = new Player("Daniel Goku", 10000);
+		this.territory = new Territory("Planeten Mars", 2000, 200);
 	}
 
 	@Test
