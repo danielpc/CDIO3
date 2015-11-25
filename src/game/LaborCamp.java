@@ -42,7 +42,7 @@ public class LaborCamp extends Ownable {
 			GUI.setDice(dc.getDiceValues()[0], dc.getDiceValues()[1]);
 			int amount = dc.getDiceSum() * 100 * getOwner().getOwnedLabor();
 			p.pay(getOwner(), amount);
-			GUI.showMessage(String.format(Lang.get("you_payed"), getName(), amount, getOwner().getName()));
+			GUI.showMessage(String.format(Lang.get("you_payed"), p.getName(), amount, getOwner().getName()));
 		}
 
 	}
