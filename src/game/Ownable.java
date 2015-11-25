@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public abstract class Ownable extends Field {
 
 	private int price;
@@ -26,7 +28,11 @@ public abstract class Ownable extends Field {
 	}
 	
 	public void buy(Player buyer) {
-		if(owner == null) {
+		if(buyer.getBalance() < price) {
+			GUI.showMessage("Du har ikke råd til denne grund.");
+		} else if(owner != null) {
+			GUI.showMessage("Dette felt er allerede ejet.");
+		} else {
 			buyer.changeBalance(-price);
 			owner = buyer;
 		}
