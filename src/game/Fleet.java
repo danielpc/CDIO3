@@ -37,7 +37,7 @@ public class Fleet extends Ownable {
 		}
 		else{
 			p.pay(getOwner(), RENT[getOwner().getOwnedFleet()-1]);
-			GUI.showMessage("Du har betalt " +  RENT[p.getOwnedFleet()-1] + " kr til " + getOwner().getName());
+			GUI.showMessage("Du har betalt " +  RENT[getOwner().getOwnedFleet()-1] + " kr til " + getOwner().getName());
 		}
 	}
 
