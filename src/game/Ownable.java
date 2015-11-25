@@ -26,8 +26,10 @@ public abstract class Ownable extends Field {
 	}
 	
 	public void buy(Player buyer) {
-		buyer.changeBalance(-price);
-		owner = buyer;
+		if(owner == null) {
+			buyer.changeBalance(-price);
+			owner = buyer;
+		}
 	}
 
 }
