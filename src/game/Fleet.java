@@ -18,6 +18,14 @@ public class Fleet extends Ownable {
 	public int getRent() {
 		return 0;											//bruges ikke 
 	}
+	
+	@Override
+	public void buy(Player buyer) {
+		if(getOwner() == null)
+			buyer.setOwnedFleet(buyer.getOwnedFleet() + 1);
+		
+		super.buy(buyer);
+	}
 
 	@Override
 	public void land(Player p) {
@@ -25,7 +33,6 @@ public class Fleet extends Ownable {
 			String s = GUI.getUserButtonPressed("Vil du købe for prisen ? " + getPrice(), "ja" , "nej");
 			if (s.equals("ja")) {
 				buy(p);
-				p.setOwnedFleet(p.getOwnedFleet()+1);
 			}
 		}
 		else{
