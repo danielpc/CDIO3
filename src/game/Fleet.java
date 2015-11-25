@@ -11,12 +11,11 @@ public class Fleet extends Ownable {
 	
 	public Fleet(String name, int price) {
 		super(name, price);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public int getRent() {
-		return 0;											//bruges ikke 
+		return 0;
 	}
 	
 	@Override
