@@ -17,7 +17,7 @@ public class Refuge extends Field {
 	@Override
 	public void land(Player p) {
 		p.changeBalance(bonus);
-		GUI.showMessage("Du har landet på den Refuge, du får " + bonus);
+		GUI.showMessage(String.format(Lang.get("bonus"), p.getName(), getName(), bonus));
 	}
 
 }

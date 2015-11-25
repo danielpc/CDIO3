@@ -29,9 +29,9 @@ public abstract class Ownable extends Field {
 	
 	public void buy(Player buyer) {
 		if(buyer.getBalance() < price) {
-			GUI.showMessage("Du har ikke råd til denne grund.");
+			GUI.showMessage(Lang.get("broke"));
 		} else if(owner != null) {
-			GUI.showMessage("Dette felt er allerede ejet.");
+			GUI.showMessage(Lang.get("already_owned"));
 		} else {
 			buyer.changeBalance(-price);
 			owner = buyer;

@@ -1,0 +1,46 @@
+tribe|Stammelejren
+walled_city|Den Bemurede By
+crater|Krateret
+goldmine|Guldminen
+second_sail|Det andet sejl
+huts|Bjerghytterne
+mountain|Bjerget
+cold_desert|Den Kolde ørken
+sea_grover|Sømonstret
+black_cave|Den Sorte Grotte
+werewall|Varulvevæggen
+monestary|Klosteret
+buccaneers|Sørøverne
+mountain_village|Bjerglandsbyen
+south_citadel|Syd-Citadellet
+pit|Afgrunden
+privateer_armade|Skibsflåden
+palace_gates|Paladsporten
+caravan|Karavanen
+tower|Tårnet
+castle|Slottet
+price|Pris: 
+bonus|Bonus: 
+rent|Leje: 
+dice_eyes|terninge-øjne.
+tax|Skat: 
+choose_players|Vælg antal spillere mellem 2 og 6: 
+player|Spiller 
+enter_name| indtast navn: 
+invalid_name|Skriv venligst et gyldigt navn.
+name_taken|Navnet er allerede taget.
+click_to_roll|%s, klik for at kaste terningerne.
+roll|Kast
+player_lost|%s er ude af spillet.
+player_won|%s vandt.
+want_to_buy|Vil du købe %s for %d kr.?
+yes|ja
+no|nej
+you_payed|%s har betalt %d kr. til %s.
+broke|Du har ikke råd til denne grund.
+already_owned|Dette felt er allerede ejet.
+bonus|%s er landet på %s og får %d kr.
+amount_or_rate|%d eller %d%%
+pay_tax|%s er landet på %s og betaler %d kr. i skat.
+landed_tax|%s er landet på %s. Vælg mellem følgende: 
+currency_tax| kr.

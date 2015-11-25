@@ -16,29 +16,31 @@ public class Game {
 	
 	
 	public Game() {
+		Lang.loadLanguage("DA.lang");
+		
 		fields = new Field[21];
 		
-		fields[0] = new Territory("Stammelejren", 1000, 100);
-		fields[1] = new Refuge("Den Bemurede By", 5000);
-		fields[2] = new Territory("Krateret", 1500, 300);
-		fields[3] = new Tax("Guldminen", 2000);
-		fields[4] = new Fleet("Det Andet Segl", 4000);
-		fields[5] = new LaborCamp("Bjerghytterne", 2500, 100);
-		fields[6] = new Territory("Bjerget", 2000, 500);
-		fields[7] = new Territory("Den Kolde Ørken", 3000, 700);
-		fields[8] = new Fleet("Sømonsteret", 4000);
-		fields[9] = new Territory("Den Sorte Grotte", 4000, 1000);
-		fields[10] = new Territory("Varulvevæggen", 4300, 1300);
-		fields[11] = new Refuge("Klosteret",500);
-		fields[12] = new Fleet("Sørøverne", 4000);
-		fields[13] = new Territory("Bjerglandsbyen", 4750, 1600);
-		fields[14] = new Territory("Syd-Citadellet", 5000, 2000);
-		fields[15] = new LaborCamp("Afgrunden", 2500, 100);
-		fields[16] = new Fleet("Skibsflåden", 4000);
-		fields[17] = new Territory("Paladsporten", 5500, 2600);
-		fields[18] = new Tax("Campingvognen", 4000, 10);
-		fields[19] = new Territory("Tårnet", 6000, 3200);
-		fields[20] = new Territory("Slottet", 8000, 4000);
+		fields[0] = new Territory(Lang.get("tribe"), 1000, 100);
+		fields[1] = new Refuge(Lang.get("walled_city"), 5000);
+		fields[2] = new Territory(Lang.get("crater"), 1500, 300);
+		fields[3] = new Tax(Lang.get("goldmine"), 2000);
+		fields[4] = new Fleet(Lang.get("second_sail"), 4000);
+		fields[5] = new LaborCamp(Lang.get("huts"), 2500, 100);
+		fields[6] = new Territory(Lang.get("mountain"), 2000, 500);
+		fields[7] = new Territory(Lang.get("cold_desert"), 3000, 700);
+		fields[8] = new Fleet(Lang.get("sea_grover"), 4000);
+		fields[9] = new Territory(Lang.get("black_cave"), 4000, 1000);
+		fields[10] = new Territory(Lang.get("werewall"), 4300, 1300);
+		fields[11] = new Refuge(Lang.get("monestary"),500);
+		fields[12] = new Fleet(Lang.get("buccaneers"), 4000);
+		fields[13] = new Territory(Lang.get("mountain_village"), 4750, 1600);
+		fields[14] = new Territory(Lang.get("south_citadel"), 5000, 2000);
+		fields[15] = new LaborCamp(Lang.get("pit"), 2500, 100);
+		fields[16] = new Fleet(Lang.get("privateer_armade"), 4000);
+		fields[17] = new Territory(Lang.get("palace_gates"), 5500, 2600);
+		fields[18] = new Tax(Lang.get("caravan"), 4000, 10);
+		fields[19] = new Territory(Lang.get("tower"), 6000, 3200);
+		fields[20] = new Territory(Lang.get("castle"), 8000, 4000);
 		
 		players = new ArrayList<>();
 		diceCup = new DiceCup();
@@ -60,7 +62,7 @@ public class Game {
 				fields[i] = new desktop_fields.Street.Builder()
 						.setTitle(this.fields[i].getName())
 						.setDescription("")
-						.setSubText("Pris: " + ((Territory)this.fields[i]).getPrice())
+						.setSubText(Lang.get("price") + ((Territory)this.fields[i]).getPrice())
 						.setRent(Integer.toString(((Territory)this.fields[i]).getRent()))
 						.setBgColor(Color.GRAY)
 						.build();
@@ -68,16 +70,16 @@ public class Game {
 			else if (this.fields[i] instanceof Refuge) {
 				fields[i] = new desktop_fields.Refuge.Builder()
 						.setTitle(this.fields[i].getName())
-						.setDescription("Bonus: " + ((Refuge)this.fields[i]).getBonus())
-						.setSubText("Bonus: " + ((Refuge)this.fields[i]).getBonus())
+						.setDescription(Lang.get("bonus") + ((Refuge)this.fields[i]).getBonus())
+						.setSubText(Lang.get("bonus") + ((Refuge)this.fields[i]).getBonus())
 						.setBgColor(Color.WHITE)
 						.build();
 			}
 			else if (this.fields[i] instanceof LaborCamp) {
 				fields[i] = new desktop_fields.Brewery.Builder()
 						.setTitle(this.fields[i].getName())
-						.setSubText("Rent: " + ((LaborCamp)this.fields[i]).getBaseRent() + " x terninge-øjne.")
-						.setDescription("Pris: " + ((LaborCamp)this.fields[i]).getPrice())
+						.setSubText(Lang.get("rent") + ((LaborCamp)this.fields[i]).getBaseRent() + " x " + Lang.get("dice_eyes"))
+						.setDescription(Lang.get("price") + ((LaborCamp)this.fields[i]).getPrice())
 						.setBgColor(Color.DARK_GRAY)
 						.build();
 			}
@@ -85,8 +87,8 @@ public class Game {
 				fields[i] = new desktop_fields.Tax.Builder()
 						/* bemærk: description og title er byttet om i GUI'en */
 						.setDescription(this.fields[i].getName())
-						.setSubText("Tax: " + ((Tax)this.fields[i]).getTax())
-						.setTitle("Tax: " + ((Tax)this.fields[i]).getTax())
+						.setSubText(Lang.get("tax") + ((Tax)this.fields[i]).getTax())
+						.setTitle(Lang.get("tax") + ((Tax)this.fields[i]).getTax())
 						.setBgColor(Color.YELLOW)
 						.build();
 			}
@@ -104,8 +106,8 @@ public class Game {
 				
 				fields[i] = new desktop_fields.Shipping.Builder()
 						.setTitle(this.fields[i].getName())
-						.setSubText("Pris: " + ((Fleet)this.fields[i]).getPrice())
-						.setDescription("Rent: " + rents)
+						.setSubText(Lang.get("price") + ((Fleet)this.fields[i]).getPrice())
+						.setDescription(Lang.get("rent") + rents)
 						.setBgColor(Color.CYAN)
 						.build();
 			}
@@ -118,7 +120,7 @@ public class Game {
 	}
 	
 	private void createPlayers(){
-		int playerCount = GUI.getUserInteger("Vælg antal spillere mellem 2 og 6: ", 2, 6);
+		int playerCount = GUI.getUserInteger(Lang.get("choose_players"), 2, 6);
 		
 		for(int i = 0; i < playerCount; i++)
 		{
@@ -126,19 +128,19 @@ public class Game {
 			String name;
 			
 			do {
-				name = GUI.getUserString("Spiller " + (i+1) + " indtast navn");
+				name = GUI.getUserString(Lang.get("player") + (i+1) + Lang.get("enter_name"));
 				invalid = false;
 				
 				if(name.isEmpty()) {
 					invalid = true;
-					GUI.showMessage("Skriv venligst et gyldigt navn");
+					GUI.showMessage(Lang.get("invalid_name"));
 					continue;
 				}
 				
 				for(int j = 0; j < players.size(); j++){
 					if(players.get(j).getName().equals(name)) {
 						invalid = true;
-						GUI.showMessage("Navnet er allerede taget");
+						GUI.showMessage(Lang.get("name_taken"));
 						break;
 					}
 				}
@@ -156,7 +158,7 @@ public class Game {
 		while(players.size() > 1){
 			Player p = players.get(turn);
 			
-			GUI.getUserButtonPressed(p.getName() + ", klik for at kaste", "Kast");
+			GUI.getUserButtonPressed(String.format(Lang.get("click_to_roll"), p.getName()), Lang.get("roll"));
 			diceCup.roll();
 			int[] diceValues = diceCup.getDiceValues();
 			GUI.setDice(diceValues[0], diceValues[1]);
@@ -169,7 +171,7 @@ public class Game {
 			GUI.setBalance(p.getName(), p.getBalance());
 			
 			if(p.getBalance() <= 0) {
-				GUI.showMessage(p.getName() + " er ude af spillet");
+				GUI.showMessage(String.format(Lang.get("player_lost"), p.getName()));
 				
 				for(Field f : fields) {
 					if(f instanceof Ownable) {
@@ -187,6 +189,6 @@ public class Game {
 			turn %= players.size();
 		}
 	
-		GUI.showMessage(players.get(0).getName() + " vandt.");
+		GUI.showMessage(String.format(Lang.get("player_won"), players.get(0).getName()));
 	}
 }

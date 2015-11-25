@@ -22,26 +22,25 @@ public class Tax extends Field {
 		if (this.taxRate == -1)
 			return Integer.toString(this.taxAmount);
 		else {
-			return this.taxAmount + " eller " + this.taxRate + "%";
+			return String.format(Lang.get("amount_or_rate"), this.taxAmount, this.taxRate);
 		}
 	}
 	
 	@Override
 	public void land(Player p) {
 		if (taxRate < 0) {
-			GUI.showMessage("Du er landet på Tax, du skal betale " + taxAmount + "kr");
+			GUI.showMessage(String.format(Lang.get("pay_tax"), p.getName(), getName(), taxAmount));
 			p.changeBalance(-taxAmount);
 		} 
 		else {
-			String s = GUI.getUserButtonPressed("Du er landet på Tax, vælg mellem følgende: ", taxAmount + " kr",
-					taxRate + "%");
+			String s = GUI.getUserButtonPressed(String.format(Lang.get("landed_tax"), p.getName()), taxAmount + Lang.get("currency_tax"), taxRate + "%");
 			if (s.equals(taxAmount + " kr")) {
 				p.changeBalance(-taxAmount);
 			}
 			else {
 				int amount = (int)Math.ceil((double)p.getBalance()*(taxRate/100.0));
 				p.changeBalance(-amount);
-				GUI.showMessage("Du har betalt " + amount + " kr");
+				GUI.showMessage(String.format(Lang.get("you_payed"), p.getName(), amount, Lang.get("tax")));
 			}
 		}
 

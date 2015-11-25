@@ -18,14 +18,14 @@ public class Territory extends Ownable {
 	@Override
 	public void land(Player p) {
 		if(getOwner() == null){
-			String s = GUI.getUserButtonPressed("Vil du købe for prisen ? " + getPrice(), "ja" , "nej");
-			if (s.equals("ja")) {
+			String s = GUI.getUserButtonPressed(String.format(Lang.get("want_to_buy"), getName(), getPrice()), Lang.get("yes"), Lang.get("no"));
+			if (s.equals(Lang.get("yes"))) {
 				buy(p);
 			}
 		}
 		else{
 			p.pay(getOwner(),rent);
-			GUI.showMessage("Du har betalt " + rent + " kr til " + getOwner().getName());
+			GUI.showMessage(String.format(Lang.get("you_payed"), p.getName(), rent, getOwner().getName()));
 		}
 		
 	}
