@@ -33,7 +33,7 @@ public class Tax extends Field {
 			p.changeBalance(-taxAmount);
 		} 
 		else {
-			String s = GUI.getUserButtonPressed(String.format(Lang.get("landed_tax"), p.getName()), taxAmount + Lang.get("currency_tax"), taxRate + "%");
+			String s = GUI.getUserButtonPressed(String.format(Lang.get("landed_tax"), p.getName(), getName()), taxAmount + Lang.get("currency_tax"), taxRate + "%");
 			if (s.equals(taxAmount + " kr")) {
 				p.changeBalance(-taxAmount);
 			}
