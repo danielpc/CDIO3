@@ -7,6 +7,7 @@ public class Account {
 
 	/**
 	 * Creates an Account
+	 * @param balance
 	 */
 	public Account(int balance) {
 		this.balance = balance;
@@ -21,6 +22,12 @@ public class Account {
 		return balance;
 	}
 
+		/**
+		 * Retrieves an amount from the account above 0
+		 * 
+		 * @param amount
+		 * @return the retrieved amount
+		 */
 	public int transaction(int amount) {
 		balance += amount;
 		int amountTransfered = amount;

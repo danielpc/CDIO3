@@ -5,20 +5,37 @@ import desktop_resources.GUI;
 public class Fleet extends Ownable {
 	private final static int[] RENT = { 500, 1000, 2000, 4000 };
 
+	/**
+	 *
+	 * @return array of rents
+	 */
 	public static int[] getRents() {
 		return RENT;
 	}
 	
+	/**
+	 *
+	 * @param name
+	 * @param price
+	 */
 	public Fleet(String name, int price) {
 		super(name, price);
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int getRent() {
 		return 0;
 	}
 	
-	@Override
+	/**
+	 *
+	 * @param buyer
+	 */
+  @Override
 	public void buy(Player buyer) {
 		if(getOwner() == null)
 			buyer.setOwnedFleet(buyer.getOwnedFleet() + 1);
@@ -26,7 +43,11 @@ public class Fleet extends Ownable {
 		super.buy(buyer);
 	}
 
-	@Override
+	/**
+	 *
+	 * @param p
+	 */
+  @Override
 	public void land(Player p) {
 		if(getOwner() == null){
 			String s = GUI.getUserButtonPressed(String.format(Lang.get("want_to_buy"), getName(), getPrice()), Lang.get("yes") , Lang.get("no"));

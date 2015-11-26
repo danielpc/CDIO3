@@ -6,18 +6,33 @@ public class Tax extends Field {
 	private int taxAmount;
 	private int taxRate;
 
+	/**
+	 *
+	 * @param name
+	 * @param taxAmount
+	 * @param taxRate
+	 */
 	public Tax(String name, int taxAmount, int taxRate) {
 		super(name);
 		this.taxAmount = taxAmount;
 		this.taxRate = taxRate;
 	}
 	
+	/**
+	 *
+	 * @param name
+	 * @param taxAmount
+	 */
 	public Tax(String name, int taxAmount) {
 		super(name);
 		this.taxAmount = taxAmount;
 		this.taxRate = -1;
 	}
 
+	/**
+	 *
+	 * @return tax
+	 */
 	public String getTax() {
 		if (this.taxRate == -1)
 			return Integer.toString(this.taxAmount);
@@ -26,6 +41,10 @@ public class Tax extends Field {
 		}
 	}
 	
+	/**
+	 *
+	 * @param p
+	 */
 	@Override
 	public void land(Player p) {
 		if (taxRate < 0) {

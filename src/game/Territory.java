@@ -5,16 +5,30 @@ import desktop_resources.GUI;
 public class Territory extends Ownable {
 	private int rent;
 
+	/**
+	 *
+	 * @param name
+	 * @param price
+	 * @param rent
+	 */
 	public Territory(String name, int price, int rent) {
 		super(name, price);
 		this.rent = rent;
 	}
 
+	/**
+	 *
+	 * @return rent
+	 */
 	@Override
 	public int getRent() {
 		return rent;
 	}
 
+	/**
+	 *
+	 * @param p
+	 */
 	@Override
 	public void land(Player p) {
 		if(getOwner() == null){

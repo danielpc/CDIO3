@@ -12,6 +12,11 @@ public class Lang {
 	
 	private Lang() {}
 	
+	/**
+	 *
+	 * @param filename
+	 * @return true if language file has been loaded
+	 */
 	public static boolean loadLanguage(String filename) {
 		try {
 			br = new BufferedReader(new FileReader(filename));
@@ -33,6 +38,11 @@ public class Lang {
 		return true;
 	}
 	
+	/**
+	 *
+	 * @param key
+	 * @return translated string
+	 */
 	public static String get(String key) {
 		return strings.get(key);
 	}

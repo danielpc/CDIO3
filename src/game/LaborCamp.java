@@ -5,20 +5,39 @@ import desktop_resources.GUI;
 public class LaborCamp extends Ownable {
 	private int baseRent;
 
+	/**
+	 *
+	 * @param name
+	 * @param price
+	 * @param baseRent
+	 */
 	public LaborCamp(String name, int price, int baseRent) {
 		super(name, price);
 		this.baseRent = baseRent;
 	}
 
+	/**
+	 *
+	 * @return base rent
+	 */
 	public int getBaseRent() {
 		return this.baseRent;
 	}
 	
+	/**
+	 * Required method
+	 * 
+	 * @return 0
+	 */
 	@Override
 	public int getRent() {
 		return 0;
 	}
 	
+	/**
+	 *
+	 * @param buyer
+	 */
 	@Override
 	public void buy(Player buyer) {
 		if(getOwner() == null)
@@ -27,6 +46,10 @@ public class LaborCamp extends Ownable {
 		super.buy(buyer);
 	}
 
+	/**
+	 *
+	 * @param p
+	 */
 	@Override
 	public void land(Player p) {
 		if(getOwner() == null){
