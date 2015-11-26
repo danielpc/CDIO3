@@ -49,12 +49,12 @@ public abstract class Ownable extends Field {
 		return owner;
 	}
 	
-  /**
-   * Makes player try to buy an Ownable
-   * 
-   * @param buyer
-   */
-  public void buy(Player buyer) {
+	/**
+	 * Makes player try to buy an Ownable
+	 * 
+	 * @param buyer
+	 */
+	public void buy(Player buyer) {
 		if(buyer.getBalance() < price) {
 			GUI.showMessage(Lang.get("broke"));
 		} else if(owner != null) {
