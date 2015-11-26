@@ -14,6 +14,7 @@ public class TerritoryTest {
 
 	@Before
 	public void setUp() throws Exception {
+		Lang.loadLanguage("DA.lang");
 		this.player = new Player("Søren Goku", 10000);
 		this.player2 = new Player("Daniel Goku", 10000);
 		this.territory = new Territory("Planeten Mars", 2000, 200);

@@ -13,6 +13,7 @@ public class FleetTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		Lang.loadLanguage("DA.lang");
 		this.player = new Player("Søren Goku", 10000);
 		this.player2 = new Player("Daniel Goku", 10000);
 		this.fleet = new Fleet("Molslinjen", 4000);

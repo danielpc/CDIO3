@@ -15,6 +15,7 @@ public class RefugeTest {
 
 	@Before
 	public void setUp() throws Exception {
+		Lang.loadLanguage("DA.lang");
 		this.player = new Player("Anders And", 1000);
 		this.refuge200 = new Refuge("Helle +200", 200);
 		this.refuge0 = new Refuge("Helle 0", 0);

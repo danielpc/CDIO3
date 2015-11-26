@@ -16,6 +16,7 @@ public class TaxTest {
 
 	@Before
 	public void setUp() throws Exception {
+		Lang.loadLanguage("DA.lang");
 		this.player = new Player("Son Goku", 9000);
 		this.tax = new Tax("Skat", 2000, 10);
 	}
