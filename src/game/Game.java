@@ -191,4 +191,13 @@ public class Game {
 	
 		GUI.showMessage(String.format(Lang.get("player_won"), players.get(0).getName()));
 	}
+	
+	public String toString() {
+		String out = "";
+		
+		for(Field f : fields)
+			out += f + "\n";
+		
+		return out;
+	}
 }
