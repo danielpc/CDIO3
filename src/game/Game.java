@@ -70,8 +70,8 @@ public class Game {
 			else if (this.fields[i] instanceof Refuge) {
 				fields[i] = new desktop_fields.Refuge.Builder()
 						.setTitle(this.fields[i].getName())
-						.setDescription(Lang.get("bonus") + ((Refuge)this.fields[i]).getBonus())
-						.setSubText(Lang.get("bonus") + ((Refuge)this.fields[i]).getBonus())
+						.setDescription(Lang.get("bonus_text") + ((Refuge)this.fields[i]).getBonus())
+						.setSubText(Lang.get("bonus_text") + ((Refuge)this.fields[i]).getBonus())
 						.setBgColor(Color.WHITE)
 						.build();
 			}
