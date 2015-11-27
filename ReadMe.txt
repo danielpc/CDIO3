@@ -8,6 +8,7 @@ alene tilbage med penge har vundet.
 === Minimumskrav ===
 Windows 7 eller nyere
 Den kræves at du har Java installeret (nyeste version anbefalet)
+GUI version 2.0.0 eller nyere.
 
 === Installation ===
 Sådan kompileres og køres spillet.
