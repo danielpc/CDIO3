@@ -25,4 +25,7 @@ public abstract class Field {
 	 */
 	public abstract void land(Player p);
 
+	public String toString() {
+		return this.getClass().getSimpleName() + ":\t" + name;
+	}
 }
